@@ -26,56 +26,65 @@ class _SignInPageState extends State<SignInPage> {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(
+                const Icon(
                   Icons.arrow_back_ios,
                 ),
-                SizedBox(height: 20),
-                Text(
+                const SizedBox(height: 20),
+                const Text(
                   'Sign In',
-                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.normal),
+                  style: TextStyle(fontSize: 40, fontWeight: FontWeight.bold),
                 ),
-                SizedBox(height: 30),
-                Text(
+                const SizedBox(height: 30),
+                const Text(
                   'E-mail',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.normal),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 TextField(
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Enter Email',
                   ),controller:email,
                   onChanged: (a){setState(() {
 
                   });}, ),
-                SizedBox(height: 30),
-                Text(
+                const SizedBox(height: 30),
+                const Text(
                   'Password',
-                  style: TextStyle(fontSize: 30, fontWeight: FontWeight.normal),
+                  style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
                 TextField(
                   obscureText: true,
-                  decoration: InputDecoration(
+                  decoration: const InputDecoration(
                     labelText: 'Enter Password',
                   ),controller: password,
                   onChanged: (a){setState(() {
 
                   });},
                 ),
-                SizedBox(height: 20),
-                Row(
-                  children: [
-                    Expanded(
-                      child: ElevatedButton(
-                        onPressed:email.text.isEmpty || password.text.isEmpty? null: () {},
-                        child: Text('Sign in'),
-                        style: ElevatedButton.styleFrom(
-                            primary:email.text.isEmpty || password.text.isEmpty? Colors.grey: Colors.blue,
-                            shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(20)
-                            )),
-                      ),
+                const SizedBox(height: 20),
+                Center(
+                  child: ElevatedButton(
+                    onPressed:email.text.isEmpty || password.text.isEmpty? null: () {},
+                    child: const Text('Sign in'),
+                    style: ElevatedButton.styleFrom(
+                        padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 150),
+                        primary:email.text.isEmpty || password.text.isEmpty? Colors.grey: Colors.blue,
+                        shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20)
+                        )),
+                  ),
+                ),
+                const SizedBox(height: 20),
+                const Center(
+                  child: Text(
+                      'Forgot the password?', style: TextStyle(fontWeight: FontWeight.bold)
+                  ),
+                ),
+                Expanded(child: SizedBox()),
+                const Center(
+                  child: Text(
+                        "Don't have an Account? Sign-up", style: TextStyle(fontWeight: FontWeight.bold)
                     ),
-                  ],
                 ),
               ],
             ),
