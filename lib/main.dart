@@ -42,10 +42,9 @@ class _SignInPageState extends State<SignInPage> {
                 TextField(
                   obscureText: true,
                   decoration: const InputDecoration(
-                    labelText: 'Enter Email',
+                    labelText: 'Enter Email', suffixIcon: Icon(Icons.done)
                   ),controller:email,
                   onChanged: (a){setState(() {
-
                   });}, ),
                 const SizedBox(height: 30),
                 const Text(
@@ -55,10 +54,10 @@ class _SignInPageState extends State<SignInPage> {
                 TextField(
                   obscureText: true,
                   decoration: const InputDecoration(
-                    labelText: 'Enter Password',
-                  ),controller: password,
+                    labelText: 'Enter Password', suffixIcon: Icon(Icons.visibility),
+                  ),
+                  controller: password,
                   onChanged: (a){setState(() {
-
                   });},
                 ),
                 const SizedBox(height: 20),
