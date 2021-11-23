@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'screens/sign_up_page.dart';
+import 'colors.dart' as color;
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +14,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Banking App',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primarySwatch: color.createMaterialColor(color.AppColor.primaryColor),
       ),
       home: const SignUpPage(),
     );

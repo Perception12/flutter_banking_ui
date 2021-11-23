@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../colors.dart' as color;
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({Key? key}) : super(key: key);
@@ -9,58 +10,62 @@ class SignUpPage extends StatefulWidget {
 
 class _SignUpPageState extends State<SignUpPage> {
   bool agreeToConditions = false;
-  Widget _nameWidget(){
+  Widget _nameWidget() {
     return const TextField(
       obscureText: false,
-      decoration: InputDecoration(
-          hintText: "Enter Your name"
-      ),
+      decoration: InputDecoration(hintText: "Enter Your name"),
     );
   }
 
-  Widget _emailWidget(){
+  Widget _emailWidget() {
     return const TextField(
       obscureText: false,
-      decoration: InputDecoration(
-          hintText: "Enter Email"
-      ),
+      decoration: InputDecoration(hintText: "Enter Email"),
     );
   }
 
-  Widget _passwordWidget(){
+  Widget _passwordWidget() {
     return const TextField(
-      obscureText: false,
-      decoration: InputDecoration(
-          hintText: "Enter password"
-      ),
+      obscureText: true,
+      decoration: InputDecoration(hintText: "Enter password"),
     );
   }
 
-  Widget _confirmWidget(){
+  Widget _confirmWidget() {
     return const TextField(
-      obscureText: false,
-      decoration: InputDecoration(
-          hintText: "Enter password"
-      ),
+      obscureText: true,
+      decoration: InputDecoration(hintText: "Enter password"),
     );
+  }
+
+  Color buttonColor() {
+    Color btnColor;
+    btnColor = agreeToConditions == true ? color.AppColor.primaryColor : color.AppColor.disabledColor;
+    return btnColor;
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       resizeToAvoidBottomInset: false,
-      backgroundColor: Colors.white,
+      backgroundColor: color.AppColor.mainBackground,
       body: Container(
-        padding: const EdgeInsets.only(top: 70, left: 30, right: 30, bottom: 30),
+        padding:
+
+            const EdgeInsets.only(top: 70, left: 30, right: 30, bottom: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Icon(Icons.arrow_back_ios, size: 20, color: Colors.blue,),
+            Icon(
+              Icons.arrow_back_ios,
+              size: 20,
+              color: color.AppColor.primaryColor,
+            ),
             const SizedBox(height: 20),
             const Text(
               "Create account",
               style: TextStyle(
-                fontSize: 24,
+                fontSize: 30,
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -70,7 +75,7 @@ class _SignUpPageState extends State<SignUpPage> {
               style: TextStyle(fontSize: 16),
             ),
             _nameWidget(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
             const Text(
               "Email address",
               style: TextStyle(
@@ -78,16 +83,18 @@ class _SignUpPageState extends State<SignUpPage> {
               ),
             ),
             _emailWidget(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
             const Text(
               "Password",
               style: TextStyle(fontSize: 16),
             ),
             _passwordWidget(),
-            const SizedBox(height: 20),
+            const SizedBox(height: 25),
             const Text(
               "Repeat password",
-              style: TextStyle(fontSize: 16,),
+              style: TextStyle(
+                fontSize: 16,
+              ),
             ),
             _confirmWidget(),
             const SizedBox(height: 10),
@@ -95,14 +102,13 @@ class _SignUpPageState extends State<SignUpPage> {
               children: [
                 Checkbox(
                     checkColor: Colors.white,
+                    activeColor: color.AppColor.primaryColor,
                     value: agreeToConditions,
-                    onChanged: (bool? value){
+                    onChanged: (bool? value) {
                       setState(() {
                         agreeToConditions = value!;
-                      }
-                      );
-                    }
-                ),
+                      });
+                    }),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: const [
@@ -112,20 +118,25 @@ class _SignUpPageState extends State<SignUpPage> {
                 ),
               ],
             ),
-            const SizedBox(height: 20,),
+            const SizedBox(height: 30),
             SizedBox(
               height: 40,
               width: MediaQuery.of(context).size.width,
-              child: ElevatedButton(
+              child: TextButton(
                 style: ButtonStyle(
+                  backgroundColor: MaterialStateProperty.all<Color>(buttonColor()),
                   shape: MaterialStateProperty.all<RoundedRectangleBorder>(
                     RoundedRectangleBorder(
-                       borderRadius: BorderRadius.circular(10.0)
-                    ),
+                        borderRadius: BorderRadius.circular(15.0)),
                   ),
                 ),
-                onPressed: null,
-                child: const Text("Sign up"),
+                onPressed: (){},
+                child: Text(
+                  "Sign up",
+                  style: TextStyle(
+                    color: color.AppColor.mainBackground,
+                  ),
+                ),
               ),
             ),
             Expanded(child: Container()),
