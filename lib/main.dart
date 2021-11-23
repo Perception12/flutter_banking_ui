@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'screens/sign_up_page.dart';
 import 'colors.dart' as color;
+import 'package:flutter_banking_ui/screens/sign_in_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: color.createMaterialColor(color.AppColor.primaryColor),
       ),
-      home: const SignUpPage(),
+      home: const SignInPage(),
     );
   }
 }
