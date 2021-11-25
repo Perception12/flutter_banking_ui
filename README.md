@@ -8,8 +8,8 @@ This project is a starting point for a Flutter application.
 - We've started with the login and signup page
 
 <p float="left">
-  <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss1.png" width="200">
-  <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss2.png" width="200">
-  <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss3.png" width="200">
-  <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss4.png" width="200">
+  <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss1.png" width="250">
+  <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss2.png" width="250">
+  <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss3.png" width="250">
+  <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss4.png" width="250">
 </p>
