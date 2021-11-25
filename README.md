@@ -7,8 +7,7 @@ This project is a starting point for a Flutter application.
 
 - We've started with the login and signup page
 
-![](\assets\images\ss1)
-![](\assets\images\ss2)
-![](\assets\images\ss3)
-![](\assets\images\ss4)
-
+![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss1.png)
+![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss2.png)
+![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss3.png)
+![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss4.png)
