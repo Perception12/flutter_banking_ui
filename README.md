@@ -7,7 +7,7 @@ This project is a starting point for a Flutter application.
 
 - We've started with the login and signup page
 
-![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss1.png){:width="50%"}
-![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss2.png){:width="50%"}
-![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss3.png){:width="50%"}
-![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss4.png){:width="50%"}
+![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss1.png){:height="700px" width="400px"}
+![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss2.png){:height="700px" width="400px"}
+![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss3.png){:height="700px" width="400px"}
+![](https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss4.png){:height="700px" width="400px"}
