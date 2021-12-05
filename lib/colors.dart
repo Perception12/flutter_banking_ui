@@ -6,6 +6,7 @@ class AppColor {
   static Color mainBackground = const Color(0xFFfbfcff);
   static Color primaryColor = const Color(0xFF5560B4);
   static Color disabledColor = const Color(0xFFE5E5E5);
+  static Color greyColor = const Color(0xFFD4D8E2);
 }
 
 MaterialColor createMaterialColor(Color color) {
