@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import '../colors.dart' as color;
+import 'components/barchart.dart';
+import 'components/piechart.dart';
 
 class StatisticsPage extends StatefulWidget {
   const StatisticsPage({Key? key}) : super(key: key);
@@ -10,6 +12,7 @@ class StatisticsPage extends StatefulWidget {
 
 class _StatisticsPageState extends State<StatisticsPage> {
   String period = 'Week';
+  int balance = 2000;
 
   @override
   Widget build(BuildContext context) {
@@ -66,6 +69,16 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 )
               ],
             ),
+            Center(
+              child: Text(
+                "\$ $balance",
+                style: const TextStyle(
+                  fontSize: 36,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+            ),
+            period == 'Week' ? const BarChart() : const PieChart(),
           ],
         ),
       ),
