@@ -1,7 +1,10 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import '../colors.dart' as color;
 import 'components/barchart.dart';
 import 'components/piechart.dart';
+import 'components/purchase.dart';
 
 class StatisticsPage extends StatefulWidget {
   const StatisticsPage({Key? key}) : super(key: key);
@@ -12,7 +15,7 @@ class StatisticsPage extends StatefulWidget {
 
 class _StatisticsPageState extends State<StatisticsPage> {
   String period = 'Week';
-  int balance = 2000;
+  double balance = 2090.20;
 
   @override
   Widget build(BuildContext context) {
@@ -69,16 +72,44 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 )
               ],
             ),
+            const SizedBox(height: 20),
             Center(
-              child: Text(
-                "\$ $balance",
-                style: const TextStyle(
-                  fontSize: 36,
-                  fontWeight: FontWeight.bold,
-                ),
+              child: Column(
+                children: [
+                  Text(
+                    "\$ $balance",
+                    style: const TextStyle(
+                      fontSize: 36,
+                      fontWeight: FontWeight.bold,
+                    ),
+                  ),
+                  const Text("Current Balance"),
+                ],
               ),
             ),
-            period == 'Week' ? const BarChart() : const PieChart(),
+            Expanded(
+              child: period == 'Week' ? const BarChart() : const PieChart(),
+            ),
+            Container(
+              height: 2,
+              color: color.AppColor.greyColor,
+            ),
+            const SizedBox(height: 10),
+            const Text(
+              "Spending",
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            const SizedBox(height: 10),
+            Row(
+              children: const [
+                Purchase(
+                    name: "Travel",
+                    icon: Icon(Icons.travel_explore),
+                    price: 700.00),
+              ],
+            ),
           ],
         ),
       ),
