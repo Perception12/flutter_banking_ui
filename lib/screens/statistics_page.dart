@@ -143,7 +143,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 Purchase(
                   name: "Travel",
                   icon: Icon(
-                    CustomIcons.big_ben_svgrepo_com,
+                    CustomIcons.new_york_liberty_statue_svgrepo_com,
                     color: color.AppColor.primaryColor,
                   ),
                   price: 700.00,
@@ -155,7 +155,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
                     Icons.directions_car,
                     color: color.AppColor.primaryColor,
                   ),
-                  price: 700.00,
+                  price: 420.21,
                 ),
               ],
             ),
@@ -168,7 +168,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
                     Icons.local_cafe,
                     color: color.AppColor.primaryColor,
                   ),
-                  price: 700.00,
+                  price: 324.22,
                 ),
                 Expanded(child: Container()),
                 Purchase(
@@ -177,7 +177,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
                     Icons.restaurant,
                     color: color.AppColor.primaryColor,
                   ),
-                  price: 700.00,
+                  price: 584.81,
                 ),
               ],
             ),
