@@ -58,7 +58,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "2020",
+              "2021",
               style: TextStyle(
                 color: color.AppColor.greyColor,
               ),
@@ -121,6 +121,54 @@ class _StatisticsPageState extends State<StatisticsPage> {
               height: MediaQuery.of(context).size.height / 3,
               child: period == 'Week' ? BarChart(data: data) : const PieChart(),
             ),
+            const SizedBox(
+              height: 10,
+            ),
+            SizedBox(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  SizedBox(
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 10,
+                          height: 10,
+                          decoration: BoxDecoration(
+                            color: color.AppColor.greyColor,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(2),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 5),
+                        const Text("Incoming"),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(width: 25),
+                  SizedBox(
+                    child: Row(
+                      children: [
+                        Container(
+                          width: 10,
+                          height: 10,
+                          decoration: BoxDecoration(
+                            color: color.AppColor.primaryColor,
+                            borderRadius: const BorderRadius.all(
+                              Radius.circular(2),
+                            ),
+                          ),
+                        ),
+                        const SizedBox(width: 5),
+                        const Text("Spend"),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 10),
             Container(
               height: 2,
               color: color.AppColor.greyColor,
@@ -133,7 +181,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 fontSize: 20,
               ),
             ),
-            const SizedBox(height: 30),
+            const SizedBox(height: 20),
             Row(
               children: [
                 Purchase(
