@@ -1,3 +1,5 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'dart:ui';
@@ -5,6 +7,7 @@ import '../colors.dart' as color;
 import 'components/barchart.dart';
 import 'components/piechart.dart';
 import 'components/purchase.dart';
+import 'components/transaction.dart';
 
 final formatCurrency = NumberFormat.simpleCurrency();
 
@@ -16,10 +19,36 @@ class StatisticsPage extends StatefulWidget {
 }
 
 class _StatisticsPageState extends State<StatisticsPage> {
+  List transData = [];
+  List<Transaction> data = [];
+  List transactions = [];
+  _initData() {
+    DefaultAssetBundle.of(context)
+        .loadString("json/data.json")
+        .then((value) => {transactions = json.decode(value)});
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _initData();
+  }
+
   String period = 'Week';
   final double _balance = 2090.20;
+
   @override
   Widget build(BuildContext context) {
+    for (int i = 0; i < transactions.length; i++) {
+      data += [
+        Transaction(
+          date: transactions[i]["date"],
+          incoming: transactions[i]["incomingPrice"],
+          spending: transactions[i]["spendingPrice"],
+        )
+      ];
+    }
+
     return Scaffold(
       backgroundColor: color.AppColor.mainBackground,
       body: Container(
@@ -90,7 +119,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height / 3,
-              child: period == 'Week' ? const BarChart() : const PieChart(),
+              child: period == 'Week' ? BarChart(data: data) : const PieChart(),
             ),
             Container(
               height: 2,
