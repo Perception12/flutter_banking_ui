@@ -1,6 +1,9 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_banking_ui/presentation/custom_icons_icons.dart';
+import 'package:flutter_banking_ui/screens/components/barchart_legend.dart';
+import 'package:flutter_banking_ui/screens/components/piechart_legend.dart';
 import 'package:intl/intl.dart';
 import 'dart:ui';
 import '../colors.dart' as color;
@@ -121,54 +124,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
               height: MediaQuery.of(context).size.height / 3,
               child: period == 'Week' ? BarChart(data: data) : const PieChart(),
             ),
-            const SizedBox(
-              height: 10,
-            ),
-            SizedBox(
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  SizedBox(
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 10,
-                          height: 10,
-                          decoration: BoxDecoration(
-                            color: color.AppColor.greyColor,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(2),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 5),
-                        const Text("Incoming"),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(width: 25),
-                  SizedBox(
-                    child: Row(
-                      children: [
-                        Container(
-                          width: 10,
-                          height: 10,
-                          decoration: BoxDecoration(
-                            color: color.AppColor.primaryColor,
-                            borderRadius: const BorderRadius.all(
-                              Radius.circular(2),
-                            ),
-                          ),
-                        ),
-                        const SizedBox(width: 5),
-                        const Text("Spend"),
-                      ],
-                    ),
-                  ),
-                ],
-              ),
-            ),
-            const SizedBox(height: 10),
+            period == 'Week' ? const BarChartLegend() : const PieChartLegend(),
             Container(
               height: 2,
               color: color.AppColor.greyColor,
@@ -187,16 +143,16 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 Purchase(
                   name: "Travel",
                   icon: Icon(
-                    Icons.travel_explore,
+                    CustomIcons.big_ben_svgrepo_com,
                     color: color.AppColor.primaryColor,
                   ),
                   price: 700.00,
                 ),
                 const SizedBox(width: 60),
                 Purchase(
-                  name: "Travel",
+                  name: "Taxi",
                   icon: Icon(
-                    Icons.travel_explore,
+                    Icons.directions_car,
                     color: color.AppColor.primaryColor,
                   ),
                   price: 700.00,
@@ -207,18 +163,18 @@ class _StatisticsPageState extends State<StatisticsPage> {
             Row(
               children: [
                 Purchase(
-                  name: "Travel",
+                  name: "Cafe",
                   icon: Icon(
-                    Icons.travel_explore,
+                    Icons.local_cafe,
                     color: color.AppColor.primaryColor,
                   ),
                   price: 700.00,
                 ),
                 Expanded(child: Container()),
                 Purchase(
-                  name: "Travel",
+                  name: "Food",
                   icon: Icon(
-                    Icons.travel_explore,
+                    Icons.restaurant,
                     color: color.AppColor.primaryColor,
                   ),
                   price: 700.00,
