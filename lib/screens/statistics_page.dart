@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_banking_ui/presentation/custom_icons_icons.dart';
 import 'package:flutter_banking_ui/screens/components/barchart_legend.dart';
-import 'package:flutter_banking_ui/screens/components/piechart_legend.dart';
+import 'package:flutter_banking_ui/screens/components/doughnut_legend.dart';
 import 'package:intl/intl.dart';
 import 'dart:ui';
 import '../colors.dart' as color;
 import 'components/barchart.dart';
-import 'components/piechart.dart';
+import 'components/doughnut_chart.dart';
 import 'components/purchase.dart';
 import 'components/transaction.dart';
 
@@ -122,9 +122,11 @@ class _StatisticsPageState extends State<StatisticsPage> {
             ),
             SizedBox(
               height: MediaQuery.of(context).size.height / 3,
-              child: period == 'Week' ? BarChart(data: data) : const PieChart(),
+              child: period == 'Week'
+                  ? BarChart(data: data)
+                  : DoughnutChart(data: data),
             ),
-            period == 'Week' ? const BarChartLegend() : const PieChartLegend(),
+            period == 'Week' ? const BarChartLegend() : const DoughnutLegend(),
             Container(
               height: 2,
               color: color.AppColor.greyColor,
