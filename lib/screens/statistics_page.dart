@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:flutter_banking_ui/presentation/custom_icons_icons.dart';
-import 'package:flutter_banking_ui/screens/components/barchart_legend.dart';
+import 'package:flutter_banking_ui/screens/components/week_legend.dart';
 import 'package:flutter_banking_ui/screens/components/month_legend.dart';
 import 'package:intl/intl.dart';
 import 'dart:ui';
@@ -114,7 +114,9 @@ class _StatisticsPageState extends State<StatisticsPage> {
                 )
               ],
             ),
-            const SizedBox(height: 20),
+            period == 'Week'
+                ? const SizedBox(height: 20)
+                : const SizedBox(height: 10),
             period == 'Week'
                 ? Center(
                     child: Column(
@@ -139,7 +141,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
                   ? WeeklyChart(data: _barData)
                   : MonthlyChart(data: _doughnutData),
             ),
-            period == 'Week' ? const BarChartLegend() : const MonthLegend(),
+            period == 'Week' ? const WeekLegend() : const MonthLegend(),
             Container(
               height: 2,
               color: color.AppColor.greyColor,

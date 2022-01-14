@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import '../../colors.dart' as color;
 
-class BarChartLegend extends StatelessWidget {
-  const BarChartLegend({Key? key}) : super(key: key);
+class WeekLegend extends StatelessWidget {
+  const WeekLegend({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
