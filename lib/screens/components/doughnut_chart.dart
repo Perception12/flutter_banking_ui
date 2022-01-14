@@ -1,25 +1,47 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_banking_ui/screens/components/transaction.dart';
 import 'package:syncfusion_flutter_charts/charts.dart';
-import 'package:charts_flutter/flutter.dart' as charts;
-import 'package:flutter_banking_ui/colors.dart' as color;
 
-class DoughnutChart extends StatelessWidget {
-  final List<Transaction> data;
-  const DoughnutChart({Key? key, required this.data}) : super(key: key);
+class DoughnutChart extends StatefulWidget {
+  final List<DoughData> data;
+  final int end_angle;
+  final Color color;
+  final String inner_radius;
+  const DoughnutChart({
+    Key? key,
+    required this.data,
+    required this.end_angle,
+    required this.color,
+    required this.inner_radius,
+  }) : super(key: key);
+
+  @override
+  State<DoughnutChart> createState() => _DoughnutChartState();
+}
+
+class _DoughnutChartState extends State<DoughnutChart> {
+  late List<DoughData> _chartData;
+
+  @override
+  void initState() {
+    _chartData = widget.data;
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
     return Container(
       child: SfCircularChart(
-        palette: [color.createMaterialColor(color.AppColor.primaryColor)],
+        palette: [widget.color],
         series: <CircularSeries>[
-          DoughnutSeries<Transaction, String>(
-            dataSource: data,
-            xValueMapper: (Transaction series, _) => series.date,
-            yValueMapper: (Transaction series, _) =>
-                series.incoming + series.spending,
-            radius: '100%',
+          DoughnutSeries<DoughData, String>(
+            dataSource: _chartData,
+            xValueMapper: (DoughData series, _) => series.date,
+            yValueMapper: (DoughData series, _) => series.amount,
+            startAngle: 15,
+            endAngle: widget.end_angle,
+            innerRadius: widget.inner_radius,
+            opacity: 0.8,
           ),
         ],
       ),

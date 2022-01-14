@@ -3,9 +3,9 @@ import 'package:charts_flutter/flutter.dart' as charts;
 import 'package:flutter_banking_ui/screens/components/transaction.dart';
 import 'package:flutter_banking_ui/colors.dart' as color;
 
-class BarChart extends StatelessWidget {
+class WeeklyChart extends StatelessWidget {
   final List<Transaction> data;
-  const BarChart({Key? key, required this.data}) : super(key: key);
+  const WeeklyChart({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -3,12 +3,12 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_banking_ui/presentation/custom_icons_icons.dart';
 import 'package:flutter_banking_ui/screens/components/barchart_legend.dart';
-import 'package:flutter_banking_ui/screens/components/doughnut_legend.dart';
+import 'package:flutter_banking_ui/screens/components/month_legend.dart';
 import 'package:intl/intl.dart';
 import 'dart:ui';
 import '../colors.dart' as color;
-import 'components/barchart.dart';
-import 'components/doughnut_chart.dart';
+import 'components/weekly_chart.dart';
+import 'components/monthly_chart.dart';
 import 'components/purchase.dart';
 import 'components/transaction.dart';
 
@@ -23,7 +23,8 @@ class StatisticsPage extends StatefulWidget {
 
 class _StatisticsPageState extends State<StatisticsPage> {
   List transData = [];
-  List<Transaction> data = [];
+  List<Transaction> _barData = [];
+  List<DoughData> _doughnutData = [];
   List transactions = [];
   _initData() {
     DefaultAssetBundle.of(context)
@@ -42,16 +43,24 @@ class _StatisticsPageState extends State<StatisticsPage> {
 
   @override
   Widget build(BuildContext context) {
-    for (int i = 0; i < transactions.length; i++) {
-      data += [
-        Transaction(
-          date: transactions[i]["date"],
-          incoming: transactions[i]["incomingPrice"],
-          spending: transactions[i]["spendingPrice"],
-        )
-      ];
+    while (_barData.length < transactions.length &&
+        _doughnutData.length < transactions.length) {
+      for (int i = 0; i < transactions.length; i++) {
+        _barData += [
+          Transaction(
+            date: transactions[i]["date"],
+            incoming: transactions[i]["incomingPrice"],
+            spending: transactions[i]["spendingPrice"],
+          )
+        ];
+        _doughnutData += [
+          DoughData(
+            date: transactions[i]["date"],
+            amount: transactions[i]["spendingPrice"],
+          )
+        ];
+      }
     }
-
     return Scaffold(
       backgroundColor: color.AppColor.mainBackground,
       body: Container(
@@ -106,27 +115,31 @@ class _StatisticsPageState extends State<StatisticsPage> {
               ],
             ),
             const SizedBox(height: 20),
-            Center(
-              child: Column(
-                children: [
-                  Text(
-                    formatCurrency.format(_balance),
-                    style: const TextStyle(
-                      fontSize: 36,
-                      fontWeight: FontWeight.bold,
+            period == 'Week'
+                ? Center(
+                    child: Column(
+                      children: [
+                        Text(
+                          formatCurrency.format(_balance),
+                          style: const TextStyle(
+                            fontSize: 36,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                        const Text("Current Balance"),
+                      ],
                     ),
+                  )
+                : const SizedBox(
+                    height: 5,
                   ),
-                  const Text("Current Balance"),
-                ],
-              ),
-            ),
             SizedBox(
               height: MediaQuery.of(context).size.height / 3,
               child: period == 'Week'
-                  ? BarChart(data: data)
-                  : DoughnutChart(data: data),
+                  ? WeeklyChart(data: _barData)
+                  : MonthlyChart(data: _doughnutData),
             ),
-            period == 'Week' ? const BarChartLegend() : const DoughnutLegend(),
+            period == 'Week' ? const BarChartLegend() : const MonthLegend(),
             Container(
               height: 2,
               color: color.AppColor.greyColor,
