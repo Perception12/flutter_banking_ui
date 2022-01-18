@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'colors.dart' as color;
-import 'package:flutter_banking_ui/screens/sign_in_page.dart';
+// import 'package:flutter_banking_ui/screens/sign_in_page.dart';
+import 'screens/statistics_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -17,7 +18,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: color.createMaterialColor(color.AppColor.primaryColor),
       ),
-      home: const SignInPage(),
+      home: const StatisticsPage(),
     );
   }
 }

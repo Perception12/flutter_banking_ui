@@ -1,0 +1,8 @@
+[
+
+    {"date": "jun 20", "incomingPrice": 150, "spendingPrice": 400, "spendingPurpose": "Travel"},
+    {"date": "jun 21", "incomingPrice": 170, "spendingPrice": 300, "spendingPurpose": "Travel"},
+    {"date": "jun 22", "incomingPrice": 200, "spendingPrice": 324.22, "spendingPurpose": "Cafe"},
+    {"date": "jun 23", "incomingPrice": 120, "spendingPrice": 584.81, "spendingPurpose": "Food"},
+    {"date": "jun 24", "incomingPrice": 584.81, "spendingPrice":420.21, "spendingPurpose": "Taxi"}
+]
