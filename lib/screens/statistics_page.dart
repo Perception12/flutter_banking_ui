@@ -62,10 +62,11 @@ class _StatisticsPageState extends State<StatisticsPage> {
       }
     }
     return Scaffold(
+      resizeToAvoidBottomInset: false,
       backgroundColor: color.AppColor.mainBackground,
       body: Container(
         padding:
-            const EdgeInsets.only(top: 50, left: 30, bottom: 30, right: 30),
+            const EdgeInsets.only(top: 40, left: 30, bottom: 30, right: 30),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [

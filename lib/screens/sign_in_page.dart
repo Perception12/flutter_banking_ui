@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_banking_ui/screens/statistics_page.dart';
 import '../colors.dart' as color;
 import 'sign_up_page.dart';
 
@@ -70,7 +71,13 @@ class _SignInPageState extends State<SignInPage> {
                 child: ElevatedButton(
                   onPressed: email.text.isEmpty || password.text.isEmpty
                       ? null
-                      : () {},
+                      : () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) =>
+                                      const StatisticsPage()));
+                        },
                   child: const Text('Sign in'),
                   style: ElevatedButton.styleFrom(
                       primary: email.text.isEmpty || password.text.isEmpty
