@@ -13,4 +13,5 @@ This project is a starting point for a Flutter application.
   <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss3.png" width="240">
   <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss4.png" width="240">
   <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss5.png" width="240">
+  <img src="https://github.com/Perception12/flutter_banking_ui/blob/main/assets/images/ss6.png" width="240">
 </p>
