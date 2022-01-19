@@ -5,7 +5,12 @@ import 'package:flutter/material.dart';
 class AppColor {
   static Color mainBackground = const Color(0xFFfbfcff);
   static Color primaryColor = const Color(0xFF5560B4);
+  static Color chartColor1 = const Color(0xFF959cd0);
+  static Color chartColor2 = const Color(0xFFb8bde0);
+  static Color chartColor3 = const Color(0xFFcacde8);
+  static Color chartColor4 = const Color(0xFFdcdeef);
   static Color disabledColor = const Color(0xFFE5E5E5);
+  static Color greyColor = const Color(0xFFD4D8E2);
 }
 
 MaterialColor createMaterialColor(Color color) {
