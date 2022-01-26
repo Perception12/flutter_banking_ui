@@ -14,6 +14,7 @@ class _SignInPageState extends State<SignInPage> {
   TextEditingController email = TextEditingController();
   TextEditingController password = TextEditingController();
 
+  bool showPassword = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -54,10 +55,17 @@ class _SignInPageState extends State<SignInPage> {
                 style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
               ),
               TextField(
-                obscureText: true,
-                decoration: const InputDecoration(
+                obscureText: !showPassword,
+                decoration: InputDecoration(
                   labelText: 'Enter Password',
-                  suffixIcon: Icon(Icons.visibility),
+                  suffixIcon: InkWell(
+                    onTap: () {
+                      setState(() {
+                        showPassword = !showPassword;
+                      });
+                    },
+                    child: showPassword ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+                  ),
                 ),
                 controller: password,
                 onChanged: (a) {
