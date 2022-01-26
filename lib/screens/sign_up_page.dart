@@ -15,7 +15,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final TextEditingController _password = TextEditingController();
   final TextEditingController _confirmPassword = TextEditingController();
   bool agreeToConditions = false;
-
+  bool showPassword = false;
   Widget _nameWidget() {
     return TextField(
       obscureText: false,
@@ -40,8 +40,18 @@ class _SignUpPageState extends State<SignUpPage> {
 
   Widget _passwordWidget() {
     return TextField(
-      obscureText: true,
-      decoration: const InputDecoration(hintText: "Enter password"),
+      obscureText: !showPassword,
+      decoration: InputDecoration(
+        labelText: 'Enter Password',
+        suffixIcon: InkWell(
+          onTap: () {
+            setState(() {
+              showPassword = !showPassword;
+            });
+          },
+          child: showPassword ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+        ),
+      ),
       controller: _password,
       onChanged: (a) {
         setState(() {});
