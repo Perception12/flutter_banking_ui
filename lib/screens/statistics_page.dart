@@ -26,6 +26,7 @@ class _StatisticsPageState extends State<StatisticsPage> {
   List<Transaction> _barData = [];
   List<DoughData> _doughnutData = [];
   List transactions = [];
+  int _selectedIndex = 1;
   _initData() {
     DefaultAssetBundle.of(context)
         .loadString("json/data.json")
@@ -198,60 +199,6 @@ class _StatisticsPageState extends State<StatisticsPage> {
                   price: 584.81,
                 ),
               ],
-            ),
-            Expanded(child: Container()),
-            SizedBox(
-              height: 60,
-              child: Column(
-                children: [
-                  Container(
-                    width: double.infinity,
-                    height: 1,
-                    color: color.AppColor.greyColor,
-                  ),
-                  const SizedBox(height: 20),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Icon(
-                        Icons.home,
-                        size: 30,
-                        color: color.AppColor.greyColor,
-                      ),
-                      const SizedBox(width: 30),
-                      Icon(
-                        Icons.bar_chart,
-                        size: 30,
-                        color: color.AppColor.primaryColor,
-                      ),
-                      const SizedBox(width: 30),
-                      Container(
-                        width: 60,
-                        padding: const EdgeInsets.only(top: 3, bottom: 3),
-                        decoration: BoxDecoration(
-                          color: color.AppColor.primaryColor,
-                          borderRadius:
-                              const BorderRadius.all(Radius.circular(10)),
-                        ),
-                        child: const Icon(Icons.add,
-                            size: 30, color: Colors.white),
-                      ),
-                      const SizedBox(width: 30),
-                      Icon(
-                        Icons.credit_card_rounded,
-                        size: 30,
-                        color: color.AppColor.greyColor,
-                      ),
-                      const SizedBox(width: 30),
-                      Icon(
-                        Icons.person,
-                        size: 30,
-                        color: color.AppColor.greyColor,
-                      ),
-                    ],
-                  ),
-                ],
-              ),
             )
           ],
         ),
@@ -259,3 +206,55 @@ class _StatisticsPageState extends State<StatisticsPage> {
     );
   }
 }
+
+// SizedBox(
+//         height: 60,
+//         child: Column(
+//           children: [
+//             Container(
+//               width: double.infinity,
+//               height: 1,
+//               color: color.AppColor.greyColor,
+//             ),
+//             const SizedBox(height: 20),
+//             Row(
+//               mainAxisAlignment: MainAxisAlignment.center,
+//               children: [
+//                 Icon(
+//                   Icons.home,
+//                   size: 30,
+//                   color: color.AppColor.greyColor,
+//                 ),
+//                 const SizedBox(width: 30),
+//                 Icon(
+//                   Icons.bar_chart,
+//                   size: 30,
+//                   color: color.AppColor.primaryColor,
+//                 ),
+//                 const SizedBox(width: 30),
+//                 Container(
+//                   width: 60,
+//                   padding: const EdgeInsets.only(top: 3, bottom: 3),
+//                   decoration: BoxDecoration(
+//                     color: color.AppColor.primaryColor,
+//                     borderRadius: const BorderRadius.all(Radius.circular(10)),
+//                   ),
+//                   child: const Icon(Icons.add, size: 30, color: Colors.white),
+//                 ),
+//                 const SizedBox(width: 30),
+//                 Icon(
+//                   Icons.credit_card_rounded,
+//                   size: 30,
+//                   color: color.AppColor.greyColor,
+//                 ),
+//                 const SizedBox(width: 30),
+//                 Icon(
+//                   Icons.person,
+//                   size: 30,
+//                   color: color.AppColor.greyColor,
+//                 ),
+//               ],
+//             ),
+//           ],
+//         ),
+//       ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_banking_ui/screens/statistics_page.dart';
+import 'package:flutter_banking_ui/screens/navigation.dart';
 import '../colors.dart' as color;
 import 'sign_up_page.dart';
 
@@ -64,7 +64,9 @@ class _SignInPageState extends State<SignInPage> {
                         showPassword = !showPassword;
                       });
                     },
-                    child: showPassword ? const Icon(Icons.visibility_off) : const Icon(Icons.visibility),
+                    child: showPassword
+                        ? const Icon(Icons.visibility_off)
+                        : const Icon(Icons.visibility),
                   ),
                 ),
                 controller: password,
@@ -83,8 +85,7 @@ class _SignInPageState extends State<SignInPage> {
                           Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) =>
-                                      const StatisticsPage()));
+                                  builder: (context) => const Navigation()));
                         },
                   child: const Text('Sign in'),
                   style: ElevatedButton.styleFrom(
